@@ -1,0 +1,18 @@
+[
+  {
+    "name": "GooseUI",
+    "version": "0.0.1",
+    "status": "In Development",
+    "description": "Simple to use, crossplatform GUI library",
+    "tags": ["C++", "GUI", "Lib"],
+    "link": "https://github.com/Hedge239/GooseUI"
+  },
+  {
+    "name": "JACE - JustAnotherCodeEditor",
+    "version": "0.0.1",
+    "status": "Development Paused",
+    "description": "A simple, plugin powered, code editor",
+    "tags": ["GUI", "Software"],
+    "link": "https://github.com/Hedge239/JustAnotherCodeEditor"
+  }
+]

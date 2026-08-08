@@ -1,0 +1,18 @@
+<div class="projects-header">
+    <h1>Projects Catalog</h1>
+    <p>Search by text or select multiple tags to filter.</p>
+              
+    <div class="controls">
+        <input type="text" id="searchInput" placeholder="Search by name, description..." oninput="filterProjects()">
+        <select id="tagSelect" onchange="addTagFromSelect()">
+            <option value="">+ Add Tag Filter...</option>
+        </select>
+    </div>
+        
+    <div id="selectedTagsContainer" class="selected-tags-container"></div>
+</div>
+        
+<div id="projectGrid" class="project-grid">
+</div>
+        
+<script src="scripts/projects.js"></script>

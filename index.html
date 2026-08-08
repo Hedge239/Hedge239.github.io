@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Neo's Site</title>
+      <link rel="stylesheet" href="styles/styles.css">
+    </head>
+
+    <body>
+
+        <header class="navbar">
+            <div class="logo">Neos Project Catalog</div>
+            <nav class="nav-links">
+                <!-- <a href="#/" data-route="#/" data-file="pages/home.html" class="nav-btn active">Home</a> -->
+                <a href="#/projectCatalog" data-route="#/projectCatalog" data-file="pages/projects.html" class="nav-btn">Projects</a>
+            </nav>
+        </header>
+
+        <main id="content" class="container"></main>
+        <script>
+          async function loadPage(route, file){
+            try {
+                const res = await fetch(file);
+                const html = await res.text();
+                const content = document.getElementById('content');
+                
+                content.innerHTML = html;
+
+                content.querySelectorAll('script').forEach(oldScript => { 
+                  const newScript = document.createElement('script');
+                  Array.from(oldScript.attributes).forEach(attr => { newScript.setAttribute(attr.name, attr.value); });
+
+                  newScript.textContent = oldScript.textContent;
+                  oldScript.parentNode.replaceChild(newScript, oldScript);
+                });
+
+                document.querySelectorAll('.nav-btn').forEach(btn => { btn.classList.toggle('active', btn.getAttribute('data-route') === route); });
+            } catch(err) { document.getElementById('content').innerHTML = '<h2>404 - Page Not Found</h2>'; }
+          }
+
+          document.querySelector('.nav-links').addEventListener('click', (e) => {
+            const link = e.target.closest('[data-route]');
+            if (!link) return;
+          
+            e.preventDefault();
+            const route = link.getAttribute('data-route');
+            const file = link.getAttribute('data-file');
+          
+            history.pushState({ route, file }, '', route);
+            loadPage(route, file);
+          });
+
+          window.onpopstate = () => {
+            const currentPath = window.location.pathname;
+            const matchingLink = document.querySelector(`[data-route="${currentPath}"]`);
+          
+            if (matchingLink) 
+            { loadPage(currentPath, matchingLink.getAttribute('data-file'));
+            } else { loadPage('/', 'pages/projects.html'); }
+          };
+
+          <!-- window.dispatchEvent(new Event('popstate')); -->
+          if (!window.location.hash) {
+            window.location.hash = '#/projectCatalog';
+          } else {
+            window.dispatchEvent(new Event('popstate'));
+          }
+          
+        </script>
+        
+    </body>
+</html>
