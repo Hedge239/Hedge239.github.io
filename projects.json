@@ -4,15 +4,39 @@
     "version": "0.0.1",
     "status": "In Development",
     "description": "Simple to use, crossplatform GUI library",
-    "tags": ["C++", "GUI", "Lib"],
+    "tags": ["Open Source", "C++", "GUI", "Lib", "Windows", "Linux"],
     "link": "https://github.com/Hedge239/GooseUI"
+  },
+  {
+    "name": "NeosContentPackager",
+    "version": "0.0.1",
+    "status": "Development Paused",
+    "description": "Tool for createing binary blobs",
+    "tags": ["Open Source", "C++", "Console", "Lib", "Software", "Windows", "Linux"],
+    "link": "https://github.com/Hedge239/NeosContentPackager"
   },
   {
     "name": "JACE - JustAnotherCodeEditor",
     "version": "0.0.1",
     "status": "Development Paused",
     "description": "A simple, plugin powered, code editor",
-    "tags": ["GUI", "Software"],
+    "tags": ["Open Source", "GUI", "Software", "Windows", "Linux"],
     "link": "https://github.com/Hedge239/JustAnotherCodeEditor"
+  },
+  {
+    "name": "SpeakingClock",
+    "version": "1.0.0",
+    "status": "Archived",
+    "description": "Tells you the time every minute",
+    "tags": ["Open Source", "Console", "Software", "Windows"],
+    "link": "https://github.com/Hedge239/SpeakingClock"
+  },
+  {
+    "name": "LaunchPadSnake",
+    "version": "1.0.0",
+    "status": "Archived",
+    "description": "Play snake on the Launchpad Mini mk1",
+    "tags": ["Open Source", "Console", "Software", "Windows"],
+    "link": "https://github.com/Hedge239/LaunchPadSnake"
   }
 ]
