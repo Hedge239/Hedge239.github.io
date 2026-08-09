@@ -4,6 +4,15 @@
               
     <div class="controls">
         <input type="text" id="searchInput" placeholder="Search by name, description..." oninput="filterProjects()">
+            
+        <select id="osSelect" onchange="filterProjects()">
+            <option value="">All OS</option>
+        </select>
+    
+        <select id="licenseSelect" onchange="filterProjects()">
+            <option value="">All Licenses</option>
+        </select>
+    
         <select id="tagSelect" onchange="addTagFromSelect()">
             <option value="">+ Add Tag Filter...</option>
         </select>

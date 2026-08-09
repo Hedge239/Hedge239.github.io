@@ -2,41 +2,71 @@
   {
     "name": "GooseUI",
     "version": "0.0.1",
-    "status": "In Development",
+    "status": "Active Development",
+    "license": "MIT",
+    "os": ["Windows", "Linux"],
     "description": "Simple to use, crossplatform GUI library",
-    "tags": ["Open Source", "C++", "GUI", "Lib", "Windows", "Linux"],
-    "link": "https://github.com/Hedge239/GooseUI"
-  },
-  {
-    "name": "NeosContentPackager",
-    "version": "0.0.1",
-    "status": "Development Paused",
-    "description": "Tool for createing binary blobs",
-    "tags": ["Open Source", "C++", "Console", "Lib", "Software", "Windows", "Linux"],
-    "link": "https://github.com/Hedge239/NeosContentPackager"
+    "tags": ["C++", "GUI", "Lib"],
+    "links": [
+      { "label": "GitHub", "url": "https://github.com/Hedge239/GooseUI" }
+    ]
   },
   {
     "name": "JACE - JustAnotherCodeEditor",
     "version": "0.0.1",
-    "status": "Development Paused",
+    "status": "Development Haitus",
+    "license": "MIT",
+    "os": ["Windows", "Linux"],
     "description": "A simple, plugin powered, code editor",
-    "tags": ["Open Source", "GUI", "Software", "Windows", "Linux"],
-    "link": "https://github.com/Hedge239/JustAnotherCodeEditor"
+    "tags": ["C++", "GUI", "Application"],
+    "links": [
+      { "label": "GitHub", "url": "https://github.com/Hedge239/JustAnotherCodeEditor" }
+    ]
+  },
+  {
+    "name": "NeosContentPackager",
+    "version": "0.0.1",
+    "status": "Development Haitus",
+    "license": "MIT",
+    "os": ["Windows", "Linux"],
+    "description": "Tool for createing binary blobs",
+    "tags": ["C++", "Console", "Lib", "Application"],
+    "links": [
+      { "label": "GitHub", "url": "https://github.com/Hedge239/NeosContentPackager" }
+    ]
   },
   {
     "name": "SpeakingClock",
     "version": "1.0.0",
     "status": "Archived",
+    "license": "MIT",
+    "os": ["Windows"],
     "description": "Tells you the time every minute",
-    "tags": ["Open Source", "Console", "Software", "Windows"],
-    "link": "https://github.com/Hedge239/SpeakingClock"
+    "tags": ["C++", "Console", "Application"],
+    "links": [
+      { "label": "GitHub", "url": "https://github.com/Hedge239/SpeakingClock" }
+    ]
   },
   {
     "name": "LaunchPadSnake",
     "version": "1.0.0",
     "status": "Archived",
+    "license": "MIT",
+    "os": ["Windows"],
     "description": "Play snake on the Launchpad Mini mk1",
-    "tags": ["Open Source", "Console", "Software", "Windows"],
-    "link": "https://github.com/Hedge239/LaunchPadSnake"
+    "tags": ["C++", "Console", "Application"],
+    "links": [
+      { "label": "GitHub", "url": "https://github.com/Hedge239/LaunchPadSnake" }
+    ]
+  },
+  {
+    "name": "Goose Astronautics",
+    "version": "0.0.0",
+    "status": "Active Development",
+    "license": "Proprietary",
+    "os": ["Windows", "Linux"],
+    "description": "Operate a space program, owned and funded by Geese",
+    "tags": ["C++", "Video Game", "Application"],
+    "links": []
   }
 ]
