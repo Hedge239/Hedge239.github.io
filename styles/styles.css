@@ -284,6 +284,21 @@ body {
   padding: 0.4rem 0;
 }
 
+/* Organization Eyebrow Style */
+.project-eyebrow {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  background-color: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  padding: 1px 6px;
+  border-radius: 4px;
+  margin-bottom: 4px;
+}
+
 /* Bottom Bar / Footer */
 .site-footer {
   background-color: var(--card-bg);

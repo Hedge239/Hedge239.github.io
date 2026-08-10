@@ -6,6 +6,7 @@
     "license": "MIT",
     "os": ["Windows", "Linux"],
     "description": "Simple to use, crossplatform GUI library",
+    "organization": "GooseLibs",
     "tags": ["C++", "GUI", "Lib"],
     "links": [
       { "label": "GitHub", "url": "https://github.com/Hedge239/GooseUI" }

@@ -31,11 +31,13 @@ function populateDropdowns(projectData)
   const tagSet = new Set();
   const licenseSet = new Set();
   const osSet = new Set();
+  const orgSet = new Set();
 
   projectData.forEach(proj => {
     if(proj.tags){ proj.tags.forEach(tag => tagSet.add(tag)); }
     if(proj.license){ licenseSet.add(proj.license); }
     if(proj.os){ proj.os.forEach(o => osSet.add(o)); }
+    if(proj.organization){ orgSet.add(proj.organization); }
   })
 
   const tagSelect = document.getElementById('tagSelect');
@@ -70,6 +72,17 @@ function populateDropdowns(projectData)
       option.value = os;
       option.textContent = os;
       osSelect.appendChild(option);
+    });
+  }
+
+  const orgSelect = document.getElementById('orgSelect');
+  if (orgSelect) {
+    orgSelect.innerHTML = '<option value="">All Organizations</option>';
+    Array.from(orgSet).sort().forEach(org => {
+      const option = document.createElement('option');
+      option.value = org;
+      option.textContent = org;
+      orgSelect.appendChild(option);
     });
   }
 }
@@ -120,13 +133,14 @@ function renderActiveTags()
 function filterProjects()
 {
   const queryInput = document.getElementById('searchInput');
-  const query = queryInput ? queryInput.value.toLowerCase() : '';
-
   const licenseSelect = document.getElementById('licenseSelect');
-  const selectedLicense = licenseSelect ? licenseSelect.value : '';
-
   const osSelect = document.getElementById('osSelect');
+  const orgSelect = document.getElementById('orgSelect');
+  
+  const query = queryInput ? queryInput.value.toLowerCase() : '';
+  const selectedLicense = licenseSelect ? licenseSelect.value : '';
   const selectedOS = osSelect ? osSelect.value : '';
+  const selectedOrg = orgSelect ? orgSelect.value : '';
 
   const filtered = projects.filter(p => {
     const matchesSearch =
@@ -138,8 +152,9 @@ function filterProjects()
     const matchesLicense = !selectedLicense || p.license === selectedLicense;
     const matchesOS = !selectedOS || (p.os && p.os.includes(selectedOS));
     const matchesTags = Array.from(selectedTags).every(tag => p.tags && p.tags.includes(tag));
+    const matchesOrg = !selectedOrg || p.organization === selectedOrg;
 
-    return matchesSearch && matchesLicense && matchesOS && matchesTags;
+    return matchesSearch && matchesLicense && matchesOS && matchesTags && matchesOrg;
   });
 
   renderProjects(filtered);
@@ -165,7 +180,8 @@ function renderProjects(projectData)
     const isProprietary = proj.license && proj.license.toLowerCase().includes('proprietary');
     const licenseClass = isProprietary ? 'license-badge proprietary' : 'license-badge standard';
     const licenseText = proj.license || 'Unlicensed';
-    
+
+    const orgEyebrowHTML = proj.organization ? `<span class="project-eyebrow">${proj.organization}</span><br>` : '';
     const osHTML = (proj.os || []).map(os => `<span class="os-badge">${os}</span>`).join('');
     const tagsHTML = (proj.tags || []).map(t => `<span class="tag-pill" onclick="addTagFilter('${t}')">${t}</span>`).join('');
 
@@ -180,7 +196,10 @@ function renderProjects(projectData)
     card.innerHTML = `
       <div>
         <div class="project-header">
-          <h3 class="project-title">${proj.name}</h3>
+          <div>
+            ${orgEyebrowHTML}
+            <h3 class="project-title">${proj.name}</h3>
+          </div>
           <span class="${licenseClass}">${licenseText}</span>
         </div>
         <div class="project-meta">

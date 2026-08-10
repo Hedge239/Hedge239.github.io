@@ -4,7 +4,11 @@
               
     <div class="controls">
         <input type="text" id="searchInput" placeholder="Search by name, description..." oninput="filterProjects()">
-            
+
+        <select id="orgSelect" onchange="filterProjects()">
+            <option value="">All Organizations</option>
+        </select>
+        
         <select id="osSelect" onchange="filterProjects()">
             <option value="">All OS</option>
         </select>
